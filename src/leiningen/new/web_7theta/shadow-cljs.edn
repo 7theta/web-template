@@ -1,0 +1,18 @@
+{:lein true
+ :builds {:dev  {:target :browser
+                 :output-dir "resources/public/js/compiled"
+                 :asset-path "/js/compiled"
+                 :modules {:main {:init-fn {{name}}.core/init}}
+                 :module-loader true
+                 :compiler-options {:optimizations :none
+                                    :infer-externs :auto
+                                    :output-feature-set :es8}
+                 :devtools {:watch-dir "resources/public"
+                            :preloads [devtools.preload dev]}}
+          :prod {:target :browser
+                 :output-dir "resources/public/js/compiled"
+                 :asset-path "/js/compiled"
+                 :modules {:main {:init-fn {{name}}.core/init}}
+                 :compiler-options {:optimizations :advanced
+                                    :infer-externs :auto
+                                    :output-feature-set :es8}}}}
