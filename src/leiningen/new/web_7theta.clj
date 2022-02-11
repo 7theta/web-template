@@ -27,11 +27,11 @@
   [name & options]
   (check-options options)
   (let [options (->> options
-                     (filter (partial available-options))
+                     (filter available-options)
                      (map #(keyword (apply str (rest %))))
                      set)
         data (template-data name options)]
-    (main/info "Generating web project with 7theta template.")
+    (main/info "Generating a project with the 7theta web template.")
     (apply ->files data (app-files data options))))
 
 

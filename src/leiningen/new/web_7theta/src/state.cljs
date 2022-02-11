@@ -14,7 +14,7 @@
    (:application/route @db)))
 
 (reg-event
- :application/route-set!
+ :application.route/set!
  (fn [_ [_ route]]
    (alter! db assoc :application/route route)
    nil)){{/routing?}}

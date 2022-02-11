@@ -18,7 +18,7 @@
   []
   (rfe/start!
    (rf/router routes {})
-   #(dispatch [:application/route-set! %])
+   #(dispatch [:application.route/set! %])
    {:use-fragment true})){{/routing?}}
 
 (defn ^:export init
