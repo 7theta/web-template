@@ -1,4 +1,4 @@
-(ns {{ns-name}}.subs
+(ns {{name}}.subs
     (:require [via.endpoint :as via]{{#auth?}}
               [via-auth.id-password :as auth]{{/auth?}}
               [signum.subs :refer [reg-sub subscribe]]

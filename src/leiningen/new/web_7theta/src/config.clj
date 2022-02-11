@@ -1,4 +1,4 @@
-(ns {{ns-name}}.config
+(ns {{name}}.config
     (:require [integrant.core :as ig]))
 
 (def config

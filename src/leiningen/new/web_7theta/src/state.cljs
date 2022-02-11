@@ -1,5 +1,5 @@
-(ns {{ns-name}}.state
-    (:require [{{ns-name}}.app :refer [reset-app!]]
+(ns {{name}}.state
+    (:require [{{name}}.app :refer [reset-app!]]
               [signum.signal :refer [signal alter!]]
               [signum.subs :refer [reg-sub subscribe]]
               [signum.events :refer [reg-event]]))

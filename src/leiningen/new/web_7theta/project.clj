@@ -1,4 +1,4 @@
-(defproject {{ns-name}} "0.1.0"
+(defproject {{name}} "0.1.0"
   :dependencies [[org.clojure/clojure "1.10.3"]
 
                  [com.7theta/via "10.0.0"]{{#auth?}}

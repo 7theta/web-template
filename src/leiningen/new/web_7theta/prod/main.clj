@@ -1,5 +1,5 @@
-(ns {{ns-name}}.main
-    (:require [{{ns-name}}.config :refer [config]]
+(ns {{name}}.main
+    (:require [{{name}}.config :refer [config]]
               [utilis.fn :refer [fsafe]]
               [utilis.types.number :refer [string->long]]
               [integrant.core :as ig])

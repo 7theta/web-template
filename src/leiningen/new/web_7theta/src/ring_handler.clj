@@ -1,4 +1,4 @@
-(ns {{ns-name}}.ring-handler
+(ns {{name}}.ring-handler
     (:require [via.defaults :refer [default-via-endpoint]]
               [reitit.ring :refer [ring-handler router routes
                                    create-resource-handler
@@ -6,7 +6,7 @@
               [ring.util.response :as response]
               [integrant.core :as ig]))
 
-(defmethod ig/init-key :{{ns-name}}/ring-handler [_ {:keys [via-handler]}]
+(defmethod ig/init-key :{{name}}/ring-handler [_ {:keys [via-handler]}]
   (ring-handler
    (router
     [[default-via-endpoint via-handler]

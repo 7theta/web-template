@@ -1,4 +1,4 @@
-(ns {{ns-name}}.modules)
+(ns {{name}}.modules)
 
 (defonce modules (atom {}))
 

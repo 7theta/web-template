@@ -1,7 +1,7 @@
-(ns {{ns-name}}.core
-    (:require [{{ns-name}}.state]
-              [{{ns-name}}.app :refer [app]]
-              [{{ns-name}}.views :refer [root-panel]]
+(ns {{name}}.core
+    (:require [{{name}}.state]
+              [{{name}}.app :refer [app]]
+              [{{name}}.views :refer [root-panel]]
               [helix.core :as hx :refer [$]]
               [react-dom]{{#routing?}}
               [reitit.frontend :as rf]

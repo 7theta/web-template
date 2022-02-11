@@ -1,6 +1,6 @@
-(ns {{ns-name}}.views
-    (:require [{{ns-name}}.macros :refer [defnc]]{{#routing?}}
-              [{{ns-name}}.modules :as modules]{{/routing?}}
+(ns {{name}}.views
+    (:require [{{name}}.macros :refer [defnc]]{{#routing?}}
+              [{{name}}.modules :as modules]{{/routing?}}
               [helix.core :refer [$]]
               [helix.dom :refer [div button]]
               [tailwind.core :refer [tw]]

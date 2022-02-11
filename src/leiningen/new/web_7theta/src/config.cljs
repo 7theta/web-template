@@ -1,4 +1,4 @@
-(ns {{ns-name}}.config
+(ns {{name}}.config
     (:require [via.endpoint]
               [via.subs]
               [via.defaults :as defaults]
