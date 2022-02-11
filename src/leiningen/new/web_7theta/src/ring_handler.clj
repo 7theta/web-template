@@ -18,9 +18,11 @@
     (create-resource-handler {:path "/"})
     (create-default-handler)))){{#graal?}}
 
-;; boilerplate for graal
 (defmethod response/resource-data :resource
   [^java.net.URL url]
-  (let [conn (.openConnection url)]
-    {:content (.getInputStream conn)
-     :content-length (let [len (.getContentLength conn)] (if-not (pos? len) len))})){{/graal?}}
+  (let [connection (.openConnection url)
+        length (#'ring.util.response/connection-content-length connection)]
+    (when (pos? length)
+      {:content (.getInputStream connection)
+       :content-length length
+       :last-modified (#'ring.util.response/connection-last-modified connection)}))){{/graal?}}

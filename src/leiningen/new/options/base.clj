@@ -19,6 +19,7 @@
    ["shadow-cljs.edn" (helpers/render "shadow-cljs.edn" data)]
    [".gitignore" (helpers/render "gitignore" data)]
    [".java-version" (helpers/render "java-version" data)]
+   ["Makefile" (helpers/render "Makefile" data)]
 
    ["resources/css/input.css" (helpers/render "resources/css/input.css" data)]
    ["resources/public/index.html" (helpers/render "resources/public/index.html" data)]

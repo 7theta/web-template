@@ -1,11 +1,11 @@
 (ns {{ns-name}}.views
-    (:require [{{name}}.macros :refer [defnc]]
+    (:require [{{ns-name}}.macros :refer [defnc]]{{#routing?}}
+              [{{ns-name}}.modules :as modules]{{/routing?}}
               [helix.core :refer [$]]
               [helix.dom :refer [div button]]
               [tailwind.core :refer [tw]]
               [via.core :refer [subscribe dispatch invoke]]
-              [signum.hooks :refer [use-signal]]{{#routing?}}
-              [{{ns-name}}.modules :as modules]{{/routing?}}))
+              [signum.hooks :refer [use-signal]]))
 
 (defnc root-panel
   []
