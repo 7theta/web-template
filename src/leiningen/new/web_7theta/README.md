@@ -22,6 +22,14 @@ To build the uberjar release
 lein run -m structor.builder/release
 ```
 
+{{#electron?}}
+To package as an electron app
+```
+cp target/{{name}}.jar electron/{{name}}.jar
+lein run -m structor.electron/release
+```
+{{/electron?}}
+
 {{#graal?}}
 To build a graal based docker container
 ```

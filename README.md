@@ -27,6 +27,7 @@ The optional profiles include:
 
 * [routing](https://github.com/metosin/reitit) (`+routing`) based on `metosin/reitit`
 * [authentication](https://github.com/7theta/via-auth) (`+auth`) based on `via`
+* [electron](https://www.electronjs.org/) (`+electron`) using `structor`
 * [graalvm native-image](https://www.graalvm.org/reference-manual/native-image/) (`+graal`)
 
 To add a profile to the base template, append the profile name(s). E.g.,

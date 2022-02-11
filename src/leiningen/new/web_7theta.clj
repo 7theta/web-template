@@ -15,13 +15,14 @@
             [leiningen.new.options.views :as views]
             [leiningen.new.options.via :as via]
             [leiningen.new.options.graal :as graal]
+            [leiningen.new.options.electron :as electron]
             [clojure.set :as set]
             [clojure.string :as st]))
 
 (declare template-data check-options app-files)
 
 (def available-options
-  #{"+routing" "+auth" "+graal"})
+  #{"+routing" "+auth" "+graal" "+electron"})
 
 (defn web-7theta
   [name & options]
@@ -51,7 +52,8 @@
    :sanitized (name-to-path name)
    :routing? (helpers/option-renderer options :routing)
    :auth? (helpers/option-renderer options :auth)
-   :graal? (helpers/option-renderer options :graal)})
+   :graal? (helpers/option-renderer options :graal)
+   :electron? (helpers/option-renderer options :electron)})
 
 (defn- app-files
   [data options]
@@ -59,4 +61,5 @@
    (base/files data options)
    (views/files data options)
    (via/files data options)
-   (graal/files data options)))
+   (graal/files data options)
+   (electron/files data options)))
