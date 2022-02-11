@@ -1,4 +1,3 @@
-APP_VERSION := $(shell awk 'NR==1{gsub(/"/, ""); print $$3}' project.clj)
 APP_DIR := .
 BUILD_TARGET := $(APP_DIR)/build
 
@@ -7,9 +6,10 @@ app-clj := $(shell find $(APP_DIR) -name "[^.]*.clj")
 app-cljs := $(shell find $(APP_DIR) -name "[^.]*.cljs")
 
 {{#graal?}}
-IMAGE_VERSION := $(shell awk 'NR==1{gsub(/"/, ""); print $$2 ":" $$3}' project.clj)
+IMAGE := $(shell awk 'NR==1{gsub(/"/, ""); print $$2 ":" $$3}' project.clj)
+IMAGE_ARCHIVE := $(shell awk 'NR==1{gsub(/"/, ""); gsub(/\//, "_"); print $$2 "_" $$3 ".tar.gz"}' project.clj)
 IMAGES_TARGET := $(BUILD_TARGET)/images
-app-image := $(IMAGES_TARGET)/{{name}}_$(APP_VERSION).tar.gz
+app-image := $(IMAGES_TARGET)/$(IMAGE_ARCHIVE)
 {{/graal?}}
 
 .PHONY: app
@@ -37,8 +37,8 @@ $(app-jar): $(APP_DIR)/package.json $(app-clj) $(app-cljs)
 {{#graal?}}
 $(app-image): $(APP_DIR)/Dockerfile $(app-jar)
 	@[ -d $(@D) ] || mkdir -p $(@D)
-	cd $(APP_DIR) && docker build -t $(IMAGE_VERSION) .
-	docker save $(IMAGE_VERSION) | gzip > $(app-image)
+	cd $(APP_DIR) && docker build -t $(IMAGE) .
+	docker save $(IMAGE) | gzip > $(app-image)
 {{/graal?}}
 
 $(APP_DIR)/package.json:
