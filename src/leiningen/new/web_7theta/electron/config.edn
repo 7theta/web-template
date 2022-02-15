@@ -1,0 +1,13 @@
+{:name {{name}}
+ :processes [{:cmd "java"
+              :args ["-Xmx2G" "-jar" "{{name}}.jar"]
+              :opts {:env {:PORT 8888
+                           :HOST "localhost"}}
+              :load-from-url :auto
+              :name "{{name}}"
+              :kill-signal "SIGKILL"}]
+ :resources ["{{name}}.jar"]
+ :hide-menu-bar true
+ :app-icon "appicon.png"
+ :app-id "{{name}}"
+ :artifact-name "${name}-${version}-${os}-${arch}.${ext}"}
