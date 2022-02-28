@@ -1,8 +1,9 @@
-(defproject {{name}} "0.1.0"
+(defproject com.7theta/{{name}} "0.1.0"
   :dependencies [[org.clojure/clojure "1.10.3"]
 
-                 [com.7theta/via "10.0.0"]{{#auth?}}
-                 [com.7theta/via-auth "0.5.2"]{{/auth?}}
+                 [com.7theta/via "10.0.1"]{{#auth?}}
+                 [com.7theta/via-auth "0.5.2"]{{/auth?}}{{#servo?}}
+                 [com.7theta/servo "2.6.0"] {{/servo?}}
                  [com.7theta/tailwind "0.3.0"]
                  [com.7theta/fontawesome "0.3.0"]
 

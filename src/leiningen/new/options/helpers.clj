@@ -11,7 +11,7 @@
   (:require [leiningen.new.templates :refer [renderer sanitize]]
             [clojure.java.io :as io]))
 
-(def template-name "web-7theta")
+(def template-name "web")
 
 (def render-text (renderer template-name))
 

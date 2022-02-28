@@ -1,6 +1,6 @@
-# web-7theta
+# com.7theta.template.web
 
-[![Current Version](https://img.shields.io/clojars/v/web-7theta/lein-template.svg)](https://clojars.org/web-7theta/lein-template)
+[![Current Version](https://img.shields.io/clojars/v/com.7theta/lein-template.web.svg)](https://clojars.org/com.7theta/lein-template.web)
 [![GitHub license](https://img.shields.io/github/license/7theta/web-template.svg)](LICENSE)
 
 Leiningen template for web apps based on 7theta libraries.
@@ -20,11 +20,12 @@ The base template includes:
 To create an application with the base template:
 
 ```
-lein new web-7theta <project-name>
+lein new com.7theta.template.web <project-name>
 ```
 
 The optional profiles include:
 
+* [servo](https://github.com/7theta/servo) (`+servo`)
 * [routing](https://github.com/metosin/reitit) (`+routing`) based on `metosin/reitit`
 * [authentication](https://github.com/7theta/via-auth) (`+auth`) based on `via`
 * [electron](https://www.electronjs.org/) (`+electron`) using `structor`
@@ -33,7 +34,7 @@ The optional profiles include:
 To add a profile to the base template, append the profile name(s). E.g.,
 
 ```
-lein new web-7theta <project-name> +auth +graal
+lein new com.7theta.template.web <project-name> +servo +auth +graal
 ```
 
 

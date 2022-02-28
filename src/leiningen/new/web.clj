@@ -7,7 +7,7 @@
 ;;   the terms of this license.
 ;;   You must not remove this notice, or any others, from this software.
 
-(ns leiningen.new.web-7theta
+(ns leiningen.new.web
   (:require [leiningen.core.main :as main]
             [leiningen.new.templates :refer [name-to-path sanitize-ns ->files]]
             [leiningen.new.options.helpers :as helpers]
@@ -22,9 +22,9 @@
 (declare template-data check-options app-files)
 
 (def available-options
-  #{"+routing" "+auth" "+graal" "+electron"})
+  #{"+servo" "+routing" "+auth" "+graal" "+electron"})
 
-(defn web-7theta
+(defn web
   [name & options]
   (check-options options)
   (let [options (->> options
@@ -50,6 +50,7 @@
   {:name name
    :ns-name (sanitize-ns name)
    :sanitized (name-to-path name)
+   :servo? (helpers/option-renderer options :servo)
    :routing? (helpers/option-renderer options :routing)
    :auth? (helpers/option-renderer options :auth)
    :graal? (helpers/option-renderer options :graal)
