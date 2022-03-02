@@ -1,4 +1,4 @@
-# com.7theta.template.web
+# com.7theta/web
 
 [![Current Version](https://img.shields.io/clojars/v/com.7theta/lein-template.web.svg)](https://clojars.org/com.7theta/lein-template.web)
 [![GitHub license](https://img.shields.io/github/license/7theta/web-template.svg)](LICENSE)
@@ -20,7 +20,7 @@ The base template includes:
 To create an application with the base template:
 
 ```
-lein new com.7theta.template.web <project-name>
+lein new com.7theta/web <project-name>
 ```
 
 The optional profiles include:
@@ -34,7 +34,7 @@ The optional profiles include:
 To add a profile to the base template, append the profile name(s). E.g.,
 
 ```
-lein new com.7theta.template.web <project-name> +servo +auth +graal
+lein new com.7theta/web <project-name> +servo +auth +graal
 ```
 
 
