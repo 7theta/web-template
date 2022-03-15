@@ -2,6 +2,7 @@
     (:require [{{name}}.state]
               [{{name}}.app :refer [app]]
               [{{name}}.views :refer [root-panel]]
+              [{{name}}.modules :as modules]
               [helix.core :as hx :refer [$]]
               [react-dom]{{#routing?}}
               [reitit.frontend :as rf]
@@ -11,18 +12,19 @@
 {{#routing?}}
 (def routes
   [["/"
-    {:name :root
-     :module :root}]])
+    {:name :main
+     :module :main}]])
 
 (defn init-routing
   []
   (rfe/start!
    (rf/router routes {})
    #(dispatch [:application.route/set! %])
-   {:use-fragment true})){{/routing?}}
+   {:use-fragment false})){{/routing?}}
 
 (defn ^:export init
   []
   (enable-console-print!){{#routing?}}
-  (init-routing){{/routing?}}
+  (init-routing)
+  (modules/init!){{/routing?}}
   (react-dom/render ($ root-panel) (js/document.getElementById "app")))

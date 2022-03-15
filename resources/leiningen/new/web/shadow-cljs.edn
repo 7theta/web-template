@@ -2,17 +2,24 @@
  :builds {:dev  {:target :browser
                  :output-dir "resources/public/js/compiled"
                  :asset-path "/js/compiled"
-                 :modules {:main {:init-fn {{name}}.core/init}}
-                 :module-loader true
+                 {{#routing?}}:module-loader true{{/routing?}}
+                 :modules {:main {:init-fn {{name}}.core/init}
+                           {{#routing?}}
+                           ;; :another-module {:entries [{{name}}.another-module]
+                           ;;                  :depends-on #{:main}}
+                           {{/routing?}}}
                  :compiler-options {:optimizations :none
-                                    :infer-externs :auto
-                                    :output-feature-set :es8}
+                                    :infer-externs :auto}
                  :devtools {:watch-dir "resources/public"
                             :preloads [devtools.preload dev]}}
           :prod {:target :browser
                  :output-dir "resources/public/js/compiled"
                  :asset-path "/js/compiled"
-                 :modules {:main {:init-fn {{name}}.core/init}}
+                 {{#routing?}}:module-loader true{{/routing?}}
+                 :modules {:main {:init-fn {{name}}.core/init}
+                           {{#routing?}}
+                           ;; :another-module {:entries [{{name}}.another-module]
+                           ;;                  :depends-on #{:main}}
+                           {{/routing?}}}
                  :compiler-options {:optimizations :advanced
-                                    :infer-externs :auto
-                                    :output-feature-set :es8}}}}
+                                    :infer-externs :auto}}}}
