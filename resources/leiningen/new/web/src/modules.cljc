@@ -53,7 +53,7 @@
      []
      ({{name}}.modules/register-all-modules!)))
 
-;;; Implementation
+;;; Private
 
 #?(:cljs
    (defn load-module
