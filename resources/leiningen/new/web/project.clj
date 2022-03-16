@@ -9,11 +9,12 @@
 
                  [lilactown/helix "0.1.5"]
 
-                 [metosin/reitit-ring "0.5.15"]
+                 [metosin/reitit-ring "0.5.15"]{{#routing?}}
+                 [metosin/reitit-frontend "0.5.15"]{{/routing?}}
 
                  [integrant "0.8.0"]]
   :profiles {:dev {:source-paths ["dev"]
-                   :dependencies [[com.7theta/structor "0.4.4"]
+                   :dependencies [[com.7theta/structor "0.5.2"]
                                   [integrant/repl "0.3.2"]]}
              :uberjar {:source-paths ["prod"]
                        :resource-paths ["resources/public/js/compiled"]{{#graal?}}

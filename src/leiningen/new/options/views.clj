@@ -15,4 +15,4 @@
   (concat
    [["src/{{sanitized}}/views.cljs" (helpers/render "src/views.cljs" data)]]
    (when (options :routing)
-     [["src/{{sanitized}}/modules.cljs" (helpers/render "src/modules.cljs" data)]])))
+     [["src/{{sanitized}}/modules.cljc" (helpers/render "src/modules.cljc" data)]])))

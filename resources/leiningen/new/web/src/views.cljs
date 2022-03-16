@@ -7,7 +7,7 @@
               [via.core :refer [subscribe dispatch invoke]]
               [signum.hooks :refer [use-signal]]))
 
-(defnc root-panel
+(defnc content
   []
   (let [{{#auth?}}authenticated? (use-signal (subscribe [:application/authenticated?]))
         credentials (use-signal (subscribe [:application.authenticated/user]))
@@ -37,3 +37,15 @@
          (div "Hello from " (use-signal (subscribe [:hello])))
          (div (str hello))
          {{/auth?}})))
+
+{{#routing?}}(modules/register! :main content){{/routing?}}
+
+(defnc root-panel
+  []
+  {{#routing?}}
+  (let [{:keys [data]} (use-signal (subscribe [:application/route]))]
+    ($ modules/router {:module (:module data)}))
+  {{/routing?}}
+  {{^routing?}}
+  ($ content)
+  {{/routing?}})

@@ -6,23 +6,30 @@
               [ring.util.response :as response]
               [integrant.core :as ig]))
 
+(defn index-html
+  [request]
+  (if (re-find #"text/html" (str (get-in request [:headers "Accept"])))
+    (-> "public/index.html"
+        response/resource-response
+        (response/content-type "text/html"))
+    {:status 404
+     :body ""
+     :headers {}}))
+
 (defmethod ig/init-key :{{name}}/ring-handler [_ {:keys [via-handler]}]
   (ring-handler
    (router
     [[default-via-endpoint via-handler]
-     ["/" (fn [_]
-            (-> "public/index.html"
-                response/resource-response
-                (response/content-type "text/html")))]])
+     ["/" index-html]])
    (routes
     (create-resource-handler {:path "/"})
-    (create-default-handler)))){{#graal?}}
+    (create-default-handler {:not-found index-html})))){{#graal?}}
 
 (defmethod response/resource-data :resource
   [^java.net.URL url]
   (let [connection (.openConnection url)
-        length (#'ring.util.response/connection-content-length connection)]
+        length (#'response/connection-content-length connection)]
     (when (pos? length)
       {:content (.getInputStream connection)
        :content-length length
-       :last-modified (#'ring.util.response/connection-last-modified connection)}))){{/graal?}}
+       :last-modified (#'response/connection-last-modified connection)}))){{/graal?}}
