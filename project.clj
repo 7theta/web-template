@@ -7,7 +7,7 @@
 ;;   the terms of this license.
 ;;   You must not remove this notice, or any others, from this software.
 
-(defproject com.7theta/lein-template.web "1.1.0"
+(defproject com.7theta/lein-template.web "1.1.1"
   :description "Leiningen template for web apps based on 7theta libraries"
   :url "https://github.com/7theta/web-template"
   :license {:name "MIT License"
