@@ -1,8 +1,8 @@
 (ns {{name}}.core
     (:require [{{name}}.state]
               [{{name}}.app :refer [app]]
-              [{{name}}.views :refer [root-panel]]
-              [{{name}}.modules :as modules]
+              [{{name}}.views :refer [root-panel]]{{#routing?}}
+              [{{name}}.modules :as modules]{{/routing?}}
               [helix.core :as hx :refer [$]]
               [react-dom]{{#routing?}}
               [reitit.frontend :as rf]
