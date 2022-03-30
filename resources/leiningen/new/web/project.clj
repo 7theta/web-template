@@ -1,16 +1,16 @@
 (defproject com.7theta/{{name}} "0.1.0"
-  :dependencies [[org.clojure/clojure "1.10.3"]
+  :dependencies [[org.clojure/clojure "1.11.0"]
 
-                 [com.7theta/via "10.0.1"]{{#auth?}}
-                 [com.7theta/via-auth "0.5.2"]{{/auth?}}{{#servo?}}
-                 [com.7theta/servo "2.6.0"] {{/servo?}}
+                 [com.7theta/via "10.2.1"]{{#auth?}}
+                 [com.7theta/via-auth "0.7.0"]{{/auth?}}{{#servo?}}
+                 [com.7theta/servo "2.8.1"] {{/servo?}}
                  [com.7theta/tailwind "0.3.0"]
                  [com.7theta/fontawesome "0.3.0"]
 
                  [lilactown/helix "0.1.5"]
 
-                 [metosin/reitit-ring "0.5.15"]{{#routing?}}
-                 [metosin/reitit-frontend "0.5.15"]{{/routing?}}
+                 [metosin/reitit-ring "0.5.17"]{{#routing?}}
+                 [metosin/reitit-frontend "0.5.17"]{{/routing?}}
 
                  [integrant "0.8.0"]]
   :profiles {:dev {:source-paths ["dev"]
