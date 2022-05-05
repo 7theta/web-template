@@ -21,12 +21,21 @@
    [".java-version" (helpers/render "java-version" data)]
    ["Makefile" (helpers/render "Makefile" data)]
 
-   ["resources/css/input.css" (helpers/render "resources/css/input.css" data)]
-   ["resources/public/index.html" (helpers/render "resources/public/index.html" data)]
+   ["resources/.keep" ""]
+   ["dev-resources/css/input.css" (helpers/render "dev-resources/css/input.css" data)]
+   ["dev-resources/templates/index.html" (helpers/render "dev-resources/templates/index.html" data)]
 
    ["src/{{sanitized}}/core.cljs" (helpers/render "src/core.cljs" data)]
-   ["src/{{sanitized}}/macros.cljc" (helpers/render "src/macros.cljc" data)]
+   ["src/{{sanitized}}/app.cljs" (helpers/render "src/app.cljs" data)]
    ["src/{{sanitized}}/state.cljs" (helpers/render "src/state.cljs" data)]
+
+   ["src/{{sanitized}}/ring_handler.clj" (helpers/render "src/ring_handler.clj" data)]
+   ["src/{{sanitized}}/state.clj" (helpers/render "src/state.clj" data)]
+   (when (options :auth)
+     ["src/{{sanitized}}/user_store.clj" (helpers/render "src/user_store.clj" data)])
+
+   ["src/{{sanitized}}/config.clj" (helpers/render "src/config.clj" data)]
+   ["src/{{sanitized}}/config.cljs" (helpers/render "src/config.cljs" data)]
 
    ["dev/user.clj" (helpers/render "dev/user.clj" data)]
    ["dev/dev.clj" (helpers/render "dev/dev.clj" data)]

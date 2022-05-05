@@ -1,11 +1,23 @@
 (ns {{name}}.state
     (:require [{{name}}.app :refer [reset-app!]]
+              [via.core :refer [subscribe dispatch]]
               [signum.signal :refer [signal alter!]]
-              [signum.subs :refer [reg-sub subscribe]]
+              [signum.subs :refer [reg-sub]]
               [signum.events :refer [reg-event]]))
 
 (def ^:private default-db {:hello "{{name}}"})
 (defonce ^:private db (signal default-db))
+
+(reg-sub
+ :application/cljs-version
+ (fn [_]
+   js/cljs_app_version))
+
+(reg-sub
+ :application.cljs.version/matches?
+ (fn [_]
+   (= @(subscribe [:application/cljs-version])
+      @(subscribe [:application/jar-version]))))
 
 {{#routing?}}
 (reg-sub
@@ -56,11 +68,4 @@
    (reset-app!)
    (alter! db (constantly default-db))
    nil))
-{{/auth?}}
-
-{{^auth?}}
-(reg-sub
- :hello
- (fn [_]
-   (:hello @db)))
 {{/auth?}}

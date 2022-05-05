@@ -3,7 +3,7 @@
                       [cljs.analyzer :as ana]
                       [clojure.string :as st]))
     #?(:cljs (:require-macros [{{name}}.modules]))
-    #?(:cljs (:require [{{name}}.macros :refer [defnc]]
+    #?(:cljs (:require [ventus.macros :refer [defnc]]
                        [helix.core :refer [$ <>]]
                        [helix.dom :refer [div]]
                        [helix.hooks :refer [use-effect]]

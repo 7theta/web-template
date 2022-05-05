@@ -2,19 +2,16 @@
     (:require [integrant.core :as ig]))
 
 (def config
-  {:{{name}}/subs {}
+  {:{{name}}/state {}{{#auth?}}
 
-   :{{name}}/events {}
-
-   {{#auth?}}
    :{{name}}/user-store {}
 
    :via-auth/id-password
    {:query-fn (ig/ref :{{name}}/user-store)
-    :endpoint (ig/ref :via/endpoint)}{{/auth?}}
-
+    :endpoint (ig/ref :via/endpoint)}
+   {{/auth?}}
    :via/endpoint
-   {:exports {:namespaces #{:{{name}}/subs :{{name}}/events}}}
+   {:exports {:namespaces #{:{{name}}/state}}}
 
    :via/subs
    {:endpoint (ig/ref :via/endpoint)}

@@ -1,6 +1,6 @@
 (ns {{name}}.views
-    (:require [{{name}}.macros :refer [defnc]]{{#routing?}}
-              [{{name}}.modules :as modules]{{/routing?}}
+    (:require {{#routing?}}[{{name}}.modules :as modules]
+              {{/routing?}}[ventus.macros :refer [defnc]]
               [helix.core :refer [$]]
               [helix.dom :refer [div button]]
               [tailwind.core :refer [tw]]
@@ -9,7 +9,9 @@
 
 (defnc content
   []
-  (let [{{#auth?}}authenticated? (use-signal (subscribe [:application/authenticated?]))
+  (let [cljs-version (use-signal (subscribe [:application/cljs-version]))
+        jar-version (use-signal (subscribe [:application/jar-version]))
+        {{#auth?}}authenticated? (use-signal (subscribe [:application/authenticated?]))
         credentials (use-signal (subscribe [:application.authenticated/user]))
         button-classes (tw [:inline-flex :items-center :px-3 :py-2 :rounded-md
                             :bg-blue-600 :text-white :text-sm :leading-4 :font-medium
@@ -31,11 +33,14 @@
                                          :on-failure #(dispatch [:application.login/failed %])
                                          :on-timeout #(dispatch [:application.login/timed-out %])}))} "Login"))
          (when authenticated?
-           (div (str hello)))
+           (div
+            (div (str "cljs version " cljs-version))
+            (div (str "jar version " jar-version))))
          {{/auth?}}
          {{^auth?}}
-         (div "Hello from " (use-signal (subscribe [:hello])))
-         (div (str hello))
+         (div
+          (div (str "cljs version " cljs-version))
+          (div (str "jar version " jar-version)))
          {{/auth?}})))
 
 {{#routing?}}(modules/register! :main content){{/routing?}}

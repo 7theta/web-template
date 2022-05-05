@@ -58,9 +58,9 @@
 
 (defn- app-files
   [data options]
-  (concat
-   (base/files data options)
-   (views/files data options)
-   (via/files data options)
-   (graal/files data options)
-   (electron/files data options)))
+  (->> (concat
+        (base/files data options)
+        (views/files data options)
+        (graal/files data options)
+        (electron/files data options))
+       (remove nil?)))

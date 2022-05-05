@@ -12,6 +12,7 @@ resources/public/js/compiled/
 figwheel_server.log
 out/
 checkouts/
+build/
 .lein-deps-sum
 .lein-repl-history
 .lein-plugins/
@@ -29,6 +30,7 @@ checkouts/
 auto-save-list
 tramp
 .\#*
+.*.~undo-tree~
 
 # Org-mode
 .org-id-locations
