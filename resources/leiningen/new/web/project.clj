@@ -6,7 +6,7 @@
                  [com.7theta/servo "2.8.1"] {{/servo?}}
                  [com.7theta/ventus "1.0.1"]
                  [com.7theta/tailwind "0.4.0"]
-                 [com.7theta/fontawesome "0.3.0"]
+                 [com.7theta/fontawesome "0.3.1"]
 
                  [metosin/reitit-ring "0.5.18"]{{#routing?}}
                  [metosin/reitit-frontend "0.5.18"]{{/routing?}}
