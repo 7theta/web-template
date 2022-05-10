@@ -1,7 +1,7 @@
 (defproject com.7theta/{{name}} "0.1.0"
   :dependencies [[org.clojure/clojure "1.11.1"]
 
-                 [com.7theta/via "10.2.3"]{{#auth?}}
+                 [com.7theta/via "11.0.0"]{{#auth?}}
                  [com.7theta/via-auth "0.7.0"]{{/auth?}}{{#servo?}}
                  [com.7theta/servo "2.8.1"] {{/servo?}}
                  [com.7theta/ventus "1.0.1"]

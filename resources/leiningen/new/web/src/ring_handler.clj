@@ -8,7 +8,7 @@
 
 (defn index-html
   [request]
-  (if (re-find #"text/html" (str (get-in request [:headers "Accept"])))
+  (if (re-find #"text/html" (str (get-in request [:headers "accept"])))
     (-> "public/index.html"
         response/resource-response
         (response/content-type "text/html"))

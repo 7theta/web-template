@@ -37,6 +37,10 @@
    ["src/{{sanitized}}/config.clj" (helpers/render "src/config.clj" data)]
    ["src/{{sanitized}}/config.cljs" (helpers/render "src/config.cljs" data)]
 
+   ["dev-resources/certs/gen-server.sh" (helpers/render "dev-resources/certs/gen-server.sh" data)]
+   ["dev-resources/certs/server.crt" (helpers/render "dev-resources/certs/server.crt" data)]
+   ["dev-resources/certs/server.key" (helpers/render "dev-resources/certs/server.key" data)]
+
    ["dev/user.clj" (helpers/render "dev/user.clj" data)]
    ["dev/dev.clj" (helpers/render "dev/dev.clj" data)]
    ["dev/dev.cljs" (helpers/render "dev/dev.cljs" data)]

@@ -16,8 +16,10 @@
    :via/subs
    {:endpoint (ig/ref :via/endpoint)}
 
-   :via/http-server
-   {:ring-handler (ig/ref :{{name}}/ring-handler)}
+   :via.http/server
+   {:ring-handler (ig/ref :{{name}}/ring-handler)
+    :tls {:server {:cert "dev-resources/certs/server.crt"
+                   :key "dev-resources/certs/server.key"}}}
 
    :{{name}}/ring-handler
    {:via-handler (ig/ref :via/endpoint)}{{#servo?}}

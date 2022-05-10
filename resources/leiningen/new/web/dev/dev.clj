@@ -20,7 +20,7 @@
 (def dev-config
   (-> config
       (assoc :structor.builder/watcher {:build-id :dev})
-      (assoc-in [:via/http-server :port] 3449)))
+      (assoc-in [:via.http/server :port] 3449)))
 
 (ig/load-namespaces dev-config)
 

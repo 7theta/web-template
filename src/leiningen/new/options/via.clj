@@ -20,6 +20,10 @@
     ["src/{{sanitized}}/app.cljs" (helpers/render "src/app.cljs" data)]
     ["src/{{sanitized}}/core.cljs" (helpers/render "src/core.cljs" data)]
     ["src/{{sanitized}}/subs.clj" (helpers/render "src/subs.clj" data)]
-    ["src/{{sanitized}}/events.clj" (helpers/render "src/events.clj" data)]]
+    ["src/{{sanitized}}/events.clj" (helpers/render "src/events.clj" data)]
+
+    ["dev-resources/certs/gen-server.sh" (helpers/render "dev-resources/certs/gen-server.sh" data)]
+    ["dev-resources/certs/server.crt" (helpers/render "dev-resources/certs/server.crt" data)]
+    ["dev-resources/certs/server.key" (helpers/render "dev-resources/certs/server.key" data)]]
    (when (options :auth)
      [["src/{{sanitized}}/user_store.clj" (helpers/render "src/user_store.clj" data)]])))
