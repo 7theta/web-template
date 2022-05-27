@@ -11,7 +11,7 @@
 
                  [integrant "0.8.0"]]
   :profiles {:dev {:source-paths ["dev"]
-                   :dependencies [[com.7theta/structor "0.8.4"]]}
+                   :dependencies [[com.7theta/structor "0.8.5"]]}
              :uberjar {:source-paths ["prod"]
                        :resource-paths ["resources/public/js/compiled"]{{#graal?}}
                        :global-vars {*assert* false}
