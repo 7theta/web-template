@@ -3,6 +3,7 @@
               [{{name}}.app :refer [app]]
               [{{name}}.views :refer [root-panel]]{{#routing?}}
               [{{name}}.modules :as modules]{{/routing?}}
+              [tailwind.web]
               [helix.core :as hx :refer [$]]
               [react-dom]{{#routing?}}
               [reitit.frontend :as rf]
@@ -24,6 +25,7 @@
 
 (defn ^:export init
   []
+  (tailwind.web/init)
   (enable-console-print!){{#routing?}}
   (init-routing)
   (modules/init!){{/routing?}}
