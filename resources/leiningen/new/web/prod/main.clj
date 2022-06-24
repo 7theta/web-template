@@ -10,7 +10,7 @@
         port (or ((fsafe string->long) (get env "PORT")) 8080)
         host (or (get env "HOST") "0.0.0.0")
         app (-> config
-                (assoc-in [:via/http-server :host] host)
-                (assoc-in [:via/http-server :port] port)
+                (assoc-in [:via.http/server :host] host)
+                (assoc-in [:via.http/server :port] port)
                 ig/init)]
     (println "URL:" (str "http" "://" host ":" port))))
